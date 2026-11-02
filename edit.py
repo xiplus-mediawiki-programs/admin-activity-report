@@ -111,7 +111,7 @@ def get_revs_by_actor_id(actor_id):
 
 @lru_cache(maxsize=None)
 def get_last_log_by_actor_id(actor_id):
-    cur.execute(last_log_query, actor_id)
+    cur.execute(last_log_query, (actor_id,))
     return parse_query_timestamp(cur.fetchone())
 
 
